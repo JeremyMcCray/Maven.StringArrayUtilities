@@ -25,7 +25,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        return array[array.length-1];
     }
 
     /**
@@ -33,7 +33,7 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        return array[array.length-2];
     }
 
     /**
@@ -42,7 +42,14 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
-        return false;
+
+        Boolean ans = false;
+        for(int i=0;i<array.length;i++){
+            if(array[i] == value){
+                ans=true;
+            }
+        }
+        return ans;
     }
 
     /**
@@ -50,7 +57,12 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        int len = array.length;
+        String[] output = new String[len];
+        for(int i = 0; i<len;i++){
+         output[i] = array[len-1-i];
+        }
+        return output;
     }
 
     /**
@@ -58,7 +70,18 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        boolean ans = false;
+        int len = array.length;
+        String[] output= new String[len];
+        for(int i =0;i<len;i++){
+            output[i] = array[len-1-i];
+
+            if(output[i] == array[i]){
+                ans= true;
+        }
+
+        }
+        return ans;
     }
 
     /**
@@ -66,7 +89,28 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        boolean ans = false;
+
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        int len = alphabet.length;
+        String StringArray = "";
+        char[] ansChecker = new char[len];
+        for(String elements:array){
+            StringArray+= elements;
+        }
+        char[] charArray = StringArray.toCharArray();
+        for(int i =0; i<alphabet.length;i++){
+            for(int j=0; j<array.length;j++){
+                if(alphabet[i] == charArray[j]){
+                    ansChecker[j] += alphabet[i];
+                }
+            }
+        }
+
+        if(ansChecker == alphabet){
+            ans=true;
+        }
+        return ans;
     }
 
     /**
