@@ -93,7 +93,7 @@ public class StringArrayUtils {
 
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         int len = alphabet.length;
-        String StringArray = "";
+        String  StringArray = "";
         char[] ansChecker = new char[len];
         for(String elements:array){
             StringArray+= elements;
@@ -106,7 +106,7 @@ public class StringArrayUtils {
                 }
             }
         }
-
+        System.out.println(ansChecker);
         if(ansChecker == alphabet){
             ans=true;
         }
@@ -119,7 +119,14 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int counter = 0;
+        for(String elements : array){
+            if(elements == value){
+                counter ++;
+
+            }        }
+
+        return counter;
     }
 
     /**
@@ -128,8 +135,26 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
-    }
+
+        int counter = array.length;
+        for(String elements : array) {
+            if (elements.equals(valueToRemove)) {
+                counter--;
+                System.out.println(counter);
+            }
+        }
+        int counter2 =0;
+            String[] ans = new String[counter];
+            for(String elements:array){
+                if( !elements.equals(valueToRemove) ){
+                  ans[counter2]=elements;
+                   counter2++;
+                 }
+                }
+
+        return ans;
+        }
+
 
     /**
      * @param array array of chars
@@ -144,7 +169,7 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        return null;
+        return array;
     }
 
 
